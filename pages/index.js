@@ -1,11 +1,12 @@
-import Head from "next/head";
-import Image from "next/image";
-import MainLayout from "../src/layouts/Main";
+import { Container } from "@mui/material";
+import Section1 from "../src/containers/Section1";
 
-export default function Home() {
+function Home() {
   return (
-    <div>
-      <MainLayout />
-    </div>
+    <Container maxWidth="xl" sx={{ py: 1 }}>
+      <Section1 />
+    </Container>
   );
 }
+
+export default Home;

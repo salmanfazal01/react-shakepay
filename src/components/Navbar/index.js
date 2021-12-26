@@ -21,7 +21,7 @@ const menuItems = [
   { name: "Get Started", variant: "contained" },
 ];
 
-export default function MenuAppBar() {
+export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [prices, setPrices] = useState([]);
 
@@ -107,7 +107,7 @@ export default function MenuAppBar() {
                       size="large"
                       sx={{
                         textTransform: "inherit",
-                        color: !item.variant && "black",
+                        color: item.variant ? "white" : "black",
                         fontWeight: 500,
                       }}
                     >
