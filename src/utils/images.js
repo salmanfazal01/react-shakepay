@@ -19,6 +19,9 @@ import Users from "../../public/images/users.svg";
 import Lock from "../../public/images/lock.svg";
 import CreditCard from "../../public/images/credit-card.svg";
 import Regulated from "../../public/images/reg.svg";
+import Reddit from "../../public/images/reddit-round.png";
+import Twitter from "../../public/images/twitter-round.png";
+import Facebook from "../../public/images/facebook-round.svg";
 
 export {
   BTC,
@@ -42,4 +45,7 @@ export {
   Lock,
   CreditCard,
   Regulated,
+  Reddit,
+  Twitter,
+  Facebook,
 };
