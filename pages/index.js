@@ -1,11 +1,13 @@
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import Section1 from "../src/containers/Section1";
+import Section2 from "../src/containers/Section2";
 
 function Home() {
   return (
-    <Container maxWidth="xl" sx={{ py: 1 }}>
+    <Box sx={{ py: 1 }}>
       <Section1 />
-    </Container>
+      <Section2 />
+    </Box>
   );
 }
 

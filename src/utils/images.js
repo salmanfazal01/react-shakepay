@@ -8,6 +8,11 @@ import GoogleStore from "../../public/images/google-play-us.svg";
 import Gift from "../../public/images/giftsSmall.svg";
 import Coins from "../../public/images/coinsSmall.svg";
 import Tree from "../../public/images/upSmall.svg";
+import BitcoinMagazine from "../../public/images/bitcoin-magazine.svg";
+import TechVibes from "../../public/images/techvibes.svg";
+import Bloomberg from "../../public/images/bloomberg.svg";
+import Forbes from "../../public/images/forbes.svg";
+import FinancialPost from "../../public/images/financial-post.svg";
 
 export {
   BTC,
@@ -20,4 +25,9 @@ export {
   Gift,
   Coins,
   Tree,
+  BitcoinMagazine,
+  TechVibes,
+  Bloomberg,
+  Forbes,
+  FinancialPost,
 };

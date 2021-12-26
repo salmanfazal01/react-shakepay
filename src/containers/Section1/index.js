@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { Box, Button, Grid, Stack, useTheme } from "@mui/material";
+import { Box, Button, Container, Grid, Stack, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import CustomContainer from "../../components/CustomContainer";
 import HolidaysBanner from "../../components/HolidaysBanner";
 import ResponsiveText from "../../components/ResponsiveText";
 import { AppleStore, GoogleStore, Phone, RightArrow } from "../../utils/images";
@@ -10,7 +11,7 @@ const Section1 = () => {
   const theme = useTheme();
 
   return (
-    <Box
+    <CustomContainer
       sx={{
         p: 3,
         [theme.breakpoints.up("md")]: {
@@ -141,7 +142,7 @@ const Section1 = () => {
           />
         </Grid>
       </Grid>
-    </Box>
+    </CustomContainer>
   );
 };
 

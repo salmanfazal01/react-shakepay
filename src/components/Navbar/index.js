@@ -10,6 +10,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getCryptoPrices } from "../../utils/cryptoPrices";
 import { BTC, ETH, Logo } from "../../utils/images";
+import CustomContainer from "../CustomContainer";
 
 const menuItems = [
   { name: "Card" },
@@ -63,7 +64,7 @@ export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" elevation={0}>
-        <Container maxWidth="xl" sx={{ py: 1 }}>
+        <CustomContainer sx={{ py: 1 }}>
           <Stack
             spacing={1}
             direction="row"
@@ -153,7 +154,7 @@ export default function Navbar() {
               </Hidden>
             </Box>
           </Stack>
-        </Container>
+        </CustomContainer>
       </AppBar>
     </Box>
   );
