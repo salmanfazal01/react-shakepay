@@ -1,5 +1,6 @@
 import Navbar from "../src/components/Navbar";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import Footer from "../src/components/Footer";
 
 const colors = {
   main: "#009FFF",
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }) {
         <CssBaseline />
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </ThemeProvider>
     </>
   );
