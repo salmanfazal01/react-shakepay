@@ -15,7 +15,7 @@ const Section1 = () => {
       sx={{
         p: 3,
         [theme.breakpoints.up("md")]: {
-          minHeight: "80vh",
+          py: 10,
           paddingTop: theme.spacing(7),
         },
       }}

@@ -4,6 +4,7 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 const colors = {
   main: "#009FFF",
   grey: "#657795",
+  lightblue: "#ccecff",
   darkblue: "#0087D9",
   darkerblue: "#002237",
 };

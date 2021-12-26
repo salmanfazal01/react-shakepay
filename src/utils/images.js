@@ -13,6 +13,12 @@ import TechVibes from "../../public/images/techvibes.svg";
 import Bloomberg from "../../public/images/bloomberg.svg";
 import Forbes from "../../public/images/forbes.svg";
 import FinancialPost from "../../public/images/financial-post.svg";
+import Lightning from "../../public/images/lightning.svg";
+import DollarSign from "../../public/images/dollar-sign.svg";
+import Users from "../../public/images/users.svg";
+import Lock from "../../public/images/lock.svg";
+import CreditCard from "../../public/images/credit-card.svg";
+import Regulated from "../../public/images/reg.svg";
 
 export {
   BTC,
@@ -30,4 +36,10 @@ export {
   Bloomberg,
   Forbes,
   FinancialPost,
+  Lightning,
+  DollarSign,
+  Users,
+  Lock,
+  CreditCard,
+  Regulated,
 };
