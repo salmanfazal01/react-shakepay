@@ -9,6 +9,7 @@ import {
   Forbes,
   FinancialPost,
 } from "../../utils/images";
+import Slide from "react-reveal/Slide";
 
 const Section2 = () => {
   const Image = ({ src, alt }) => (
@@ -43,19 +44,33 @@ const Section2 = () => {
           alignItems="center"
         >
           <Box sx={{ flexGrow: 1 }}>
-            <Image src={BitcoinMagazine} alt="Bitcoin Magazine" />
+            <Slide left>
+              <Image src={BitcoinMagazine} alt="Bitcoin Magazine" />
+            </Slide>
           </Box>
+
           <Box sx={{ flexGrow: 1 }}>
-            <Image src={TechVibes} alt="Tech Vibes" />
+            <Slide left>
+              <Image src={TechVibes} alt="Tech Vibes" />
+            </Slide>
           </Box>
+
           <Box sx={{ flexGrow: 1 }}>
-            <Image src={Bloomberg} alt="Bloomberg" />
+            <Slide bottom>
+              <Image src={Bloomberg} alt="Bloomberg" />
+            </Slide>
           </Box>
+
           <Box sx={{ flexGrow: 1 }}>
-            <Image src={Forbes} alt="Forbes" />
+            <Slide right>
+              <Image src={Forbes} alt="Forbes" />
+            </Slide>
           </Box>
+
           <Box sx={{ flexGrow: 1 }}>
-            <Image src={FinancialPost} alt="Financial Post" />
+            <Slide right>
+              <Image src={FinancialPost} alt="Financial Post" />
+            </Slide>
           </Box>
         </Stack>
       </CustomContainer>
