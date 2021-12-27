@@ -12,7 +12,8 @@ import React from "react";
 import { Logo } from "../../utils/images";
 import CustomContainer from "../CustomContainer";
 import LanguageIcon from "@mui/icons-material/Language";
-import Slide from "react-reveal/Slide";
+import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
 
 const footerItems = [
   { title: "PRODUCT", items: ["Fees", "Charts", "Blog", "Feedback"] },
@@ -39,94 +40,96 @@ const Footer = () => {
 
   const BusinessCard = () => (
     <Grid item xs={12} md={3}>
-      <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 1 }}>
-        <Image
-          src={Logo}
-          alt="Shakepay Logo"
-          height={45}
-          width={45}
-          objectFit="contain"
-        />
-        <Typography variant="h6">Shakepay Inc.</Typography>
-      </Stack>
+      <Zoom left style={{ width: "100%" }}>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 1 }}>
+          <Image
+            src={Logo}
+            alt="Shakepay Logo"
+            height={45}
+            width={45}
+            objectFit="contain"
+          />
+          <Typography variant="h6">Shakepay Inc.</Typography>
+        </Stack>
 
-      <Typography
-        sx={{
-          fontSize: 14,
-          fontWeight: 600,
-          color: theme.palette.primary.grey,
-          mb: 3,
-        }}
-      >
-        Montreal, Canada 🍁
-      </Typography>
-
-      <Stack
-        direction="row"
-        spacing={1}
-        alignItems="center"
-        sx={{
-          cursor: "pointer",
-          mb: 3,
-          "&:hover": {
-            color: theme.palette.primary.main,
-          },
-        }}
-      >
-        <LanguageIcon sx={{ color: theme.palette.primary.grey }} />
         <Typography
           sx={{
             fontSize: 14,
             fontWeight: 600,
+            color: theme.palette.primary.grey,
+            mb: 3,
           }}
         >
-          Français
+          Montreal, Canada 🍁
         </Typography>
-      </Stack>
 
-      <Typography
-        sx={{
-          fontSize: 14,
-          fontWeight: 600,
-          color: theme.palette.primary.grey,
-          mb: 1,
-        }}
-      >
-        REGULATED
-      </Typography>
+        <Stack
+          direction="row"
+          spacing={1}
+          alignItems="center"
+          sx={{
+            cursor: "pointer",
+            mb: 3,
+            "&:hover": {
+              color: theme.palette.primary.main,
+            },
+          }}
+        >
+          <LanguageIcon sx={{ color: theme.palette.primary.grey }} />
+          <Typography
+            sx={{
+              fontSize: 14,
+              fontWeight: 600,
+            }}
+          >
+            Français
+          </Typography>
+        </Stack>
 
-      <Typography
-        sx={{
-          fontSize: 14,
-          fontWeight: 600,
-          color: theme.palette.primary.grey,
-        }}
-      >
-        FINTRAC #M17065696
-      </Typography>
+        <Typography
+          sx={{
+            fontSize: 14,
+            fontWeight: 600,
+            color: theme.palette.primary.grey,
+            mb: 1,
+          }}
+        >
+          REGULATED
+        </Typography>
 
-      <Typography
-        sx={{
-          fontSize: 14,
-          fontWeight: 600,
-          color: theme.palette.primary.grey,
-        }}
-      >
-        AMF #904007
-      </Typography>
+        <Typography
+          sx={{
+            fontSize: 14,
+            fontWeight: 600,
+            color: theme.palette.primary.grey,
+          }}
+        >
+          FINTRAC #M17065696
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: 14,
+            fontWeight: 600,
+            color: theme.palette.primary.grey,
+          }}
+        >
+          AMF #904007
+        </Typography>
+      </Zoom>
     </Grid>
   );
 
   return (
     <Box>
       <Divider />
-      <Slide bottom duration={1000}>
-        <CustomContainer sx={{ py: 8, px: 4 }}>
-          <Grid container spacing={2} justifyContent="space-evenly">
-            <BusinessCard />
+      <CustomContainer sx={{ py: 8, px: 4 }}>
+        <Grid container spacing={2} justifyContent="space-evenly">
+          <BusinessCard />
 
-            {footerItems.map((items) => (
-              <Grid item xs={12} md={3} key={items.title}>
+          {footerItems.map((items) => (
+            <Grid item xs={12} md={3} key={items.title}>
+              <Fade bottom>
                 <Typography
                   sx={{
                     fontWeight: 600,
@@ -136,10 +139,11 @@ const Footer = () => {
                 >
                   {items.title}
                 </Typography>
+              </Fade>
 
-                {items.items.map((item) => (
+              {items.items.map((item, i) => (
+                <Fade bottom delay={100 * i} key={item}>
                   <Typography
-                    key={item}
                     sx={{
                       fontWeight: 500,
                       mb: 0.3,
@@ -151,12 +155,12 @@ const Footer = () => {
                   >
                     {item}
                   </Typography>
-                ))}
-              </Grid>
-            ))}
-          </Grid>
-        </CustomContainer>
-      </Slide>
+                </Fade>
+              ))}
+            </Grid>
+          ))}
+        </Grid>
+      </CustomContainer>
     </Box>
   );
 };
