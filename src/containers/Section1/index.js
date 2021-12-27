@@ -3,8 +3,8 @@ import { Box, Button, Grid, Stack, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import Fade from "react-reveal/Fade";
-import Flash from "react-reveal/Flash";
 import Flip from "react-reveal/Flip";
+import RubberBand from "react-reveal/RubberBand";
 import CustomContainer from "../../components/CustomContainer";
 import HolidaysBanner from "../../components/HolidaysBanner";
 import ResponsiveText from "../../components/ResponsiveText";
@@ -31,9 +31,9 @@ const Section1 = () => {
       >
         {/* Left Side */}
         <Grid item xs={12} md={8} lg={7}>
-          <Flash>
+          <RubberBand>
             <HolidaysBanner sx={{ mb: { xs: 3, md: 5 } }} />
-          </Flash>
+          </RubberBand>
 
           <Fade left>
             <ResponsiveText variant="h3" sx={{ fontWeight: 600 }}>
@@ -56,14 +56,15 @@ const Section1 = () => {
             </ResponsiveText>
           </Fade>
 
-          <Fade bottom>
-            <Stack
-              direction={{ xs: "column", md: "row" }}
-              spacing={2}
-              sx={{ mt: { xs: 2, md: 3, lg: 4 } }}
-              justifyContent="flex-start"
-            >
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={2}
+            sx={{ mt: { xs: 2, md: 3, lg: 4 } }}
+            justifyContent="flex-start"
+          >
+            <Fade bottom delay={100}>
               <Button
+                fullWidth
                 size="large"
                 variant="contained"
                 disableElevation
@@ -72,6 +73,9 @@ const Section1 = () => {
                   textTransform: "inherit",
                   height: 57,
                   minWidth: 140,
+                  [theme.breakpoints.down("sm")]: {
+                    height: 45,
+                  },
                 }}
               >
                 Get started{" "}
@@ -96,13 +100,19 @@ const Section1 = () => {
                   />
                 </Box>
               </Button>
+            </Fade>
 
+            <Fade bottom delay={300}>
               <Button
+                fullWidth
                 size="large"
                 sx={{
                   border: "0.1rem solid #E7ECF2",
                   height: 57,
                   minWidth: 140,
+                  [theme.breakpoints.down("sm")]: {
+                    height: 45,
+                  },
                 }}
               >
                 <img
@@ -115,13 +125,19 @@ const Section1 = () => {
                   }}
                 />
               </Button>
+            </Fade>
 
+            <Fade bottom delay={500}>
               <Button
+                fullWidth
                 size="large"
                 sx={{
                   border: "0.1rem solid #E7ECF2",
                   height: 57,
                   minWidth: 140,
+                  [theme.breakpoints.down("sm")]: {
+                    height: 45,
+                  },
                 }}
               >
                 <img
@@ -134,8 +150,8 @@ const Section1 = () => {
                   }}
                 />
               </Button>
-            </Stack>
-          </Fade>
+            </Fade>
+          </Stack>
         </Grid>
 
         {/* Right Side */}

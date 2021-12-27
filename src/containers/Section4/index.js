@@ -16,6 +16,8 @@ import CustomContainer from "../../components/CustomContainer";
 import { Reddit, Twitter, Facebook } from "../../utils/images";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import RubberBand from "react-reveal/RubberBand";
+import Fade from "react-reveal/Fade";
 
 const testimonials = [
   {
@@ -145,59 +147,63 @@ const Section4 = () => {
 
   return (
     <CustomContainer maxWidth="xl" sx={{ pt: 6, pb: { xs: 5, md: 10 } }}>
-      <Typography variant="h4" sx={{ textAlign: "center", mb: 8 }}>
-        Community love 😍
-      </Typography>
+      <RubberBand>
+        <Typography variant="h4" sx={{ textAlign: "center", mb: 8 }}>
+          Community love 😍
+        </Typography>
+      </RubberBand>
 
-      <Slider {...settings}>
-        {testimonials.map((testimonial, i) => (
-          <Box key={i} sx={{ p: 2 }}>
-            <Card
-              elevation={0}
-              sx={{
-                height: 320,
-                cursor: "pointer",
-                boxShadow:
-                  "rgba(0, 0, 0, 0.02) 0px 6px 24px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
-                "&:hover": {
-                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-                },
-              }}
-            >
-              <CardContent>
-                <Stack
-                  spacing={1.5}
-                  justifyContent="center"
-                  alignItems="center"
-                  sx={{ textAlign: "center", py: 1 }}
-                >
-                  <Avatar
-                    src={testimonial.icon}
-                    alt={testimonial.title}
-                    sx={{
-                      height: 40,
-                      width: 40,
-                    }}
-                  />
-                  <Typography sx={{ fontSize: "20px", fontWeight: 500 }}>
-                    {testimonial.title}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: theme.palette.primary.grey,
-                      whiteSpace: "pre-line",
-                    }}
+      <Fade delay={200}>
+        <Slider {...settings}>
+          {testimonials.map((testimonial, i) => (
+            <Box key={i} sx={{ p: 2 }}>
+              <Card
+                elevation={0}
+                sx={{
+                  height: 320,
+                  cursor: "pointer",
+                  boxShadow:
+                    "rgba(0, 0, 0, 0.02) 0px 6px 24px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
+                  "&:hover": {
+                    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                  },
+                }}
+              >
+                <CardContent>
+                  <Stack
+                    spacing={1.5}
+                    justifyContent="center"
+                    alignItems="center"
+                    sx={{ textAlign: "center", py: 1 }}
                   >
-                    {testimonial.subtitle.length > 200
-                      ? testimonial.subtitle.slice(0, 200).concat("...")
-                      : testimonial.subtitle}
-                  </Typography>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Box>
-        ))}
-      </Slider>
+                    <Avatar
+                      src={testimonial.icon}
+                      alt={testimonial.title}
+                      sx={{
+                        height: 40,
+                        width: 40,
+                      }}
+                    />
+                    <Typography sx={{ fontSize: "20px", fontWeight: 500 }}>
+                      {testimonial.title}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: theme.palette.primary.grey,
+                        whiteSpace: "pre-line",
+                      }}
+                    >
+                      {testimonial.subtitle.length > 200
+                        ? testimonial.subtitle.slice(0, 200).concat("...")
+                        : testimonial.subtitle}
+                    </Typography>
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Box>
+          ))}
+        </Slider>
+      </Fade>
     </CustomContainer>
   );
 };

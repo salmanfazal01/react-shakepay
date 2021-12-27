@@ -11,6 +11,8 @@ import React, { useEffect, useState } from "react";
 import { getCryptoPrices } from "../../utils/cryptoPrices";
 import { BTC, ETH, Logo } from "../../utils/images";
 import CustomContainer from "../CustomContainer";
+import Wobble from "react-reveal/Wobble";
+import Fade from "react-reveal/Fade";
 
 const menuItems = [
   { name: "Card" },
@@ -72,26 +74,37 @@ export default function Navbar() {
             justifyContent="space-between"
           >
             {/* Logo */}
-            <Button sx={{ textTransform: "inherit", color: "#000" }}>
-              <Image
-                src={Logo}
-                alt="Shakepay Logo"
-                height={50}
-                width={45}
-                objectFit="contain"
-              />
-              <Hidden smDown>
-                <Typography variant="h6" sx={{ ml: 1, fontWeight: 600 }}>
-                  Shakepay
-                </Typography>
-              </Hidden>
-            </Button>
+            <Wobble>
+              <Button sx={{ textTransform: "inherit", color: "#000" }}>
+                <Image
+                  src={Logo}
+                  alt="Shakepay Logo"
+                  height={50}
+                  width={45}
+                  objectFit="contain"
+                />
+
+                <Hidden smDown>
+                  <Typography variant="h6" sx={{ ml: 1, fontWeight: 600 }}>
+                    Shakepay
+                  </Typography>
+                </Hidden>
+              </Button>
+            </Wobble>
 
             {/* Crypto Prices */}
             <Hidden lgDown>
               <Stack spacing={2} direction="row">
-                {btc && <PriceButton image={BTC} price={btc.current_price} />}
-                {eth && <PriceButton image={ETH} price={eth.current_price} />}
+                {btc && (
+                  <Fade top delay={100}>
+                    <PriceButton image={BTC} price={btc.current_price} />
+                  </Fade>
+                )}
+                {eth && (
+                  <Fade top delay={200}>
+                    <PriceButton image={ETH} price={eth.current_price} />
+                  </Fade>
+                )}
               </Stack>
             </Hidden>
 
@@ -100,22 +113,23 @@ export default function Navbar() {
               {/* Desktop Menu */}
               <Hidden mdDown>
                 <Stack direction="row" spacing={2}>
-                  {menuItems.map((item) => (
-                    <Button
-                      disableElevation
-                      key={item.name}
-                      variant={item.variant || "text"}
-                      size="large"
-                      sx={{
-                        textTransform: "inherit",
-                        color: item.variant ? "white" : "black",
-                        fontWeight: 500,
-                      }}
-                    >
-                      <Typography sx={{ fontWeight: 500 }}>
-                        {item.name}
-                      </Typography>
-                    </Button>
+                  {menuItems.map((item, i) => (
+                    <Fade right duration={200 * i} key={item.name}>
+                      <Button
+                        disableElevation
+                        variant={item.variant || "text"}
+                        size="large"
+                        sx={{
+                          textTransform: "inherit",
+                          color: item.variant ? "white" : "black",
+                          fontWeight: 500,
+                        }}
+                      >
+                        <Typography sx={{ fontWeight: 500 }}>
+                          {item.name}
+                        </Typography>
+                      </Button>
+                    </Fade>
                   ))}
                 </Stack>
               </Hidden>

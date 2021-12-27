@@ -10,11 +10,26 @@ import {
   CreditCard,
   Regulated,
 } from "../../utils/images";
+import CountUp from "react-countup";
+import Slide from "react-reveal/Slide";
+import Jump from "react-reveal/Jump";
+import Fade from "react-reveal/Fade";
+import Pulse from "react-reveal/Pulse";
 
 const stats = [
-  { title: "10 minutes", subtitle: "to own your first bitcoin" },
-  { title: "$5B+", subtitle: "in digital currency bought & sold" },
-  { title: "800,000+", subtitle: "Canadians served" },
+  {
+    before: "",
+    count: 10,
+    after: " minutes",
+    subtitle: "to own your first bitcoin",
+  },
+  {
+    before: "$",
+    count: 5,
+    after: "B+",
+    subtitle: "in digital currency bought & sold",
+  },
+  { before: "", count: 800000, after: "+", subtitle: "Canadians served" },
 ];
 
 const services = [
@@ -75,23 +90,30 @@ const Section3 = () => {
         sx={{ mb: { xs: 7, md: 10, lg: 13 } }}
       >
         {stats.map((text) => (
-          <Grid item xs={12} md={4} key={text.title}>
+          <Grid item xs={12} md={4} key={text.count}>
             <Stack
               justifyContent="center"
               alignItems="center"
               sx={{ textAlign: "center" }}
             >
-              <Typography sx={{ fontSize: "2rem", fontWeight: 600 }}>
-                {text.title}
-              </Typography>
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  color: theme.palette.primary.grey,
-                }}
-              >
-                {text.subtitle}
-              </Typography>
+              <Jump>
+                <Typography sx={{ fontSize: "2rem", fontWeight: 600 }}>
+                  {text.before}
+                  <CountUp start={0} end={text.count} duration={3} />
+                  {text.after}
+                </Typography>
+              </Jump>
+
+              <Slide bottom>
+                <Typography
+                  sx={{
+                    fontWeight: 500,
+                    color: theme.palette.primary.grey,
+                  }}
+                >
+                  {text.subtitle}
+                </Typography>
+              </Slide>
             </Stack>
           </Grid>
         ))}
@@ -106,35 +128,43 @@ const Section3 = () => {
               alignItems="center"
               sx={{ textAlign: "center" }}
             >
-              <Avatar
-                sx={{
-                  backgroundColor: theme.palette.background.lightblue,
-                  height: 75,
-                  width: 75,
-                  p: 3,
-                }}
-              >
-                <img
-                  src={service.icon}
-                  alt={service.title}
-                  style={{
-                    height: "100%",
-                    width: "100%",
-                    objectFit: "contain",
+              <Fade top>
+                <Avatar
+                  sx={{
+                    backgroundColor: theme.palette.background.lightblue,
+                    height: 75,
+                    width: 75,
+                    p: 3,
                   }}
-                />
-              </Avatar>
-              <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
-                {service.title}
-              </Typography>
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  color: theme.palette.primary.grey,
-                }}
-              >
-                {service.subtitle}
-              </Typography>
+                >
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </Avatar>
+              </Fade>
+
+              <Pulse>
+                <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
+                  {service.title}
+                </Typography>
+              </Pulse>
+
+              <Fade>
+                <Typography
+                  sx={{
+                    fontWeight: 500,
+                    color: theme.palette.primary.grey,
+                  }}
+                >
+                  {service.subtitle}
+                </Typography>
+              </Fade>
             </Stack>
           </Grid>
         ))}

@@ -12,6 +12,7 @@ import React from "react";
 import { Logo } from "../../utils/images";
 import CustomContainer from "../CustomContainer";
 import LanguageIcon from "@mui/icons-material/Language";
+import Slide from "react-reveal/Slide";
 
 const footerItems = [
   { title: "PRODUCT", items: ["Fees", "Charts", "Blog", "Feedback"] },
@@ -119,41 +120,43 @@ const Footer = () => {
   return (
     <Box>
       <Divider />
-      <CustomContainer sx={{ py: 8, px: 4 }}>
-        <Grid container spacing={2} justifyContent="space-evenly">
-          <BusinessCard />
+      <Slide bottom duration={1000}>
+        <CustomContainer sx={{ py: 8, px: 4 }}>
+          <Grid container spacing={2} justifyContent="space-evenly">
+            <BusinessCard />
 
-          {footerItems.map((items) => (
-            <Grid item xs={12} md={3} key={items.title}>
-              <Typography
-                sx={{
-                  fontWeight: 600,
-                  color: theme.palette.primary.grey,
-                  mb: 1,
-                }}
-              >
-                {items.title}
-              </Typography>
-
-              {items.items.map((item) => (
+            {footerItems.map((items) => (
+              <Grid item xs={12} md={3} key={items.title}>
                 <Typography
-                  key={item}
                   sx={{
-                    fontWeight: 500,
-                    mb: 0.3,
-                    cursor: "pointer",
-                    "&:hover": {
-                      color: theme.palette.primary.main,
-                    },
+                    fontWeight: 600,
+                    color: theme.palette.primary.grey,
+                    mb: 1,
                   }}
                 >
-                  {item}
+                  {items.title}
                 </Typography>
-              ))}
-            </Grid>
-          ))}
-        </Grid>
-      </CustomContainer>
+
+                {items.items.map((item) => (
+                  <Typography
+                    key={item}
+                    sx={{
+                      fontWeight: 500,
+                      mb: 0.3,
+                      cursor: "pointer",
+                      "&:hover": {
+                        color: theme.palette.primary.main,
+                      },
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                ))}
+              </Grid>
+            ))}
+          </Grid>
+        </CustomContainer>
+      </Slide>
     </Box>
   );
 };
